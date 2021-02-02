@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import ReactGA from 'react-ga';
 import { store } from '../../store.js';
 import './Player.scss';
 
@@ -8,6 +9,10 @@ const Player = () => {
 
   const handlePlayerClick = () => {
     if (!playing) {
+      ReactGA.event({
+        category: 'Botón Play',
+        action: 'Hizo click en botón de play'
+      });
       try {
         document.getElementById('audio-player').play();
       } catch (e) {

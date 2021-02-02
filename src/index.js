@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
+import ReactGA from 'react-ga';
 import MainRouter from './MainRouter';
 import AudioElement from './components/AudioElement';
 import { StateProvider } from './store.js';
@@ -20,16 +21,22 @@ console.log(
   'font-size: 15px; color: blue;'
 );
 
-ReactDOM.render(
-  <React.StrictMode>
-    <StateProvider>
-      <AudioElement />
-      <MainRouter />
-    </StateProvider>
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const App = () => {
+  useEffect(() => {
+    ReactGA.initialize(process.env.REACT_APP_GOOGLE_ANALYTICS_TRACKING_ID);
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
+  return (
+    <React.StrictMode>
+      <StateProvider>
+        <AudioElement />
+        <MainRouter />
+      </StateProvider>
+    </React.StrictMode>
+  );
+};
 
+ReactDOM.render(<App />, document.getElementById('root'));
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals

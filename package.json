@@ -13,20 +13,11 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "autoprefixer": "^9.8.6",
-    "eslint": "^7.19.0",
-    "eslint-config-prettier": "^7.2.0",
-    "eslint-config-standard": "^16.0.2",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^3.3.1",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-react": "^7.22.0",
-    "eslint-plugin-react-hooks": "^4.2.0",
     "express": "^4.17.1",
     "express-favicon": "^2.0.1",
     "node-sass": "4.14.1",
     "path": "^0.12.7",
     "postcss": "^7.0.35",
-    "prettier": "^2.2.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-ga": "^3.3.0",
@@ -40,7 +31,7 @@
   },
   "scripts": {
     "start": "node server.js",
-    "cracostart": "craco start",
+    "dev": "craco start",
     "build": "GENERATE_SOURCEMAP=false craco build",
     "test": "craco test",
     "eject": "react-scripts eject",
@@ -81,7 +72,16 @@
     ]
   },
   "devDependencies": {
+    "eslint": "^7.19.0",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
     "husky": "^4.3.8",
-    "lint-staged": "^10.5.3"
+    "lint-staged": "^10.5.3",
+    "prettier": "^2.2.1"
   }
 }

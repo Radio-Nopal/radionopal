@@ -1,15 +1,17 @@
 import React from 'react';
-import { HashRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Programacion from './pages/Programacion';
 import Home from './pages/Home';
+import ShowDetail from './components/Shows/ShowDetail';
 
 const MainRouter = () => (
-  <HashRouter>
+  <BrowserRouter>
     <Switch>
+      <Route path="/programacion/:slug" component={ShowDetail} />
       <Route path="/programacion" render={() => <Programacion />} />
       <Route path="/" render={() => <Home />} />
     </Switch>
-  </HashRouter>
+  </BrowserRouter>
 );
 
 export default MainRouter;

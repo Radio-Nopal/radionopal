@@ -36,7 +36,7 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node server.js",
     "craco": "craco start",
     "build": "GENERATE_SOURCEMAP=false craco build",
     "test": "craco test",

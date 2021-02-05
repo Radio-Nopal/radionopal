@@ -6,7 +6,7 @@ const SocialNetworksLinks = () => {
   return (
     <>
       <span>
-        <Link className="mr-1" to="/">
+        <Link className="mr-1 font-noah-medium" to="/">
           Apóyanos
         </Link>
       </span>

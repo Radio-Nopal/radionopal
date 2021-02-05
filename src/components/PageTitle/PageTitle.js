@@ -1,14 +1,13 @@
 import React from 'react';
-import './PageTitle.scss';
 
 const PageTitle = (props) => {
   const { title, subtitle, description } = props;
   return (
-    <div className="page-title flex">
+    <div className="page__title flex">
       <div className="text-center max-w-lg m-auto">
-        <h1 className="header__title text-4xl">{title}</h1>
-        <h2 className="header__subtitle">{subtitle}</h2>
-        <span className="header__description">{description}</span>
+        <h1 className="text-4xl">{title}</h1>
+        <h2>{subtitle}</h2>
+        <span>{description}</span>
       </div>
     </div>
   );

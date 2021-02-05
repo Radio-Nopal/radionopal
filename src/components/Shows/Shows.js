@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Loader from '../Loader';
 import './Shows.scss';
 
@@ -6,7 +7,7 @@ const Shows = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch('https://radionopal-cms.herokuapp.com/programas')
+    fetch(`${process.env.REACT_APP_CMS_URL}/programas`)
       .then((response) => response.json())
       .then((data) => setData(data))
       .catch((err) => {
@@ -20,10 +21,14 @@ const Shows = () => {
         {data.map((item, key) => {
           return (
             <div key={key} className="show">
-              <h1 className="show__title text-4xl">{item.nombre}</h1>
-              <span className="show__host">Por: {item.host}</span>
-              <h2 className="show__description text-gray-400">{item.descripcion}</h2>
-              <img src={item.imagen[0].url} alt={item.descripcion} />
+              <Link to={`/programacion/${item.slug}`}>
+                <h1 className="show__title text-4xl">{item.nombre}</h1>
+                {item.locutorxs[0].nombre && (
+                  <span className="show__host">Por: {item.locutorxs[0].nombre}</span>
+                )}
+                <h2 className="show__description text-gray-400">{`${item.dias} | ${item.hora} | ${item.periodicidad}`}</h2>
+                <img src={item.imagen_programa[0].url} alt={item.descripcion} />
+              </Link>
             </div>
           );
         })}

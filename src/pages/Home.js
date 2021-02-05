@@ -1,20 +1,17 @@
 import React from 'react';
-import Header from '../components/Header/Header';
-import Footer from '../components/Footer/Footer';
-import PageTitle from '../components/PageTitle/PageTitle';
+import Page from '../components/Page/Page';
+import Shows from '../components/Shows/Shows';
 import './Home.scss';
 
 const Home = () => {
   return (
-    <div className="home">
-      <Header />
-      <PageTitle
-        title="Home"
-        subtitle="asdf"
-        description="Quisque sodales nunc id justo eleifend ullamcorper. Maecenas malesuada feugiat neque, sit amet eleifend mauris consequat nec"
-      />
-      <Footer />
-    </div>
+    <Page
+      title="Home"
+      subtitle="asdf"
+      classModifier="page--home"
+      description="Quisque sodales nunc id justo eleifend ullamcorper. Maecenas malesuada feugiat neque, sit amet eleifend mauris consequat nec">
+      <Shows />
+    </Page>
   );
 };
 

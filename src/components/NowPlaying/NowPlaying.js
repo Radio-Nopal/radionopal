@@ -12,7 +12,7 @@ const NowPlaying = () => {
         {playing && <span className="now-playing__on"></span>}
         Estás escuchando
         <br />
-        <span>defensa personal</span>
+        <span className="font-noah-medium">defensa personal</span>
       </div>
       <div className="now-playing__info w-1/5">
         @maranadalba y @eupempes magna aliqua Quis ipsum gravida

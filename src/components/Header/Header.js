@@ -16,7 +16,7 @@ const initialState = {
   showMenu: false
 };
 
-const Header = () => {
+const Header = ({ backgroundColor, backgroundImages }) => {
   const [state, setState] = useState(initialState);
   useEffect(() => {
     window.addEventListener('scroll', () => {
@@ -24,7 +24,12 @@ const Header = () => {
     });
   }, []);
   return (
-    <header className={`header top-0 sticky z-10 ${state.scroll ? 'header--collapsed' : ''}`}>
+    <header
+      className={`header top-0 sticky z-10 ${state.scroll ? 'header--collapsed' : ''}`}
+      style={{
+        backgroundImage: `url(${backgroundImages ? backgroundImages[0] : 'none'})`,
+        backgroundColor: backgroundColor ? backgroundColor.css : 'none'
+      }}>
       <div className="header__container md:absolute p-8 w-full">
         <div className="grid grid-cols-8 gap-4">
           <div className="header__col gap-2 md:gap-8 flex md:block col-span-6 md:col-span-4 space-between items-start">

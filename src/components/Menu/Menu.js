@@ -10,10 +10,10 @@ const Menu = ({ showMenu }) => {
       }`}>
       <ul>
         <li>
-          <Link to="/programacion">Programación</Link>
+          <Link to="/">Programación</Link>
         </li>
         <li>
-          <Link to="/">Residencia</Link>
+          <Link to="/info/residencia">Residencia</Link>
         </li>
         <li>
           <Link to="/">Educativa</Link>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaGlobe } from 'react-icons/fa';
+import Mailchimp from 'react-mailchimp-form';
 import nopalLogo from '../../assets/images/nopal.svg';
 import './Footer.scss';
 
@@ -21,7 +22,28 @@ const Footer = () => {
         Para más información escríbenos a →{' '}
         <a href="mailto:contato@radionopal.com">contato@radionopal.com</a>
       </div>
-      <div>Suscríbete a nuestro Newletter</div>
+      <div>
+        Suscríbete a nuestro Newletter: <br />
+        <Mailchimp
+          action={process.env.REACT_APP_MAILCHIMP_URL}
+          fields={[
+            {
+              name: 'EMAIL',
+              placeholder: 'Email',
+              type: 'email',
+              required: true
+            }
+          ]}
+          messages={{
+            sending: 'Enviando...',
+            success: 'Gracias por suscribirte',
+            error: 'Ocurrió un error.',
+            empty: 'Debes ingresar un e-mail.',
+            duplicate: 'Ya se registró este e-mail',
+            button: 'Enviar'
+          }}
+        />
+      </div>
     </footer>
   );
 };

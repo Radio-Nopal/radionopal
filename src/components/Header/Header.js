@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import HamburgerMenu from 'react-hamburger-menu';
+import Marquee from 'react-smooth-marquee'; //import Marquee from 'react-double-marquee';
 import SocialNetworksLinks from '../SocialNetworksLinks';
 import Player from '../Player/Player';
 import Menu from '../Menu/Menu';
@@ -69,6 +70,7 @@ const Header = ({ backgroundColor, backgroundImages }) => {
             </div>
           </div>
         </div>
+        <Marquee>@maranadalba y @eupempes magna aliqua Quis ipsum gravida</Marquee>
       </div>
       <Menu showMenu={state.showMenu} />
     </header>

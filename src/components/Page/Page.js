@@ -4,20 +4,12 @@ import Footer from '../Footer/Footer';
 import PageTitle from '../PageTitle/PageTitle';
 import './Page.scss';
 
-const GenericPage = ({
-  title = '',
-  subtitle = '',
-  description = '',
-  backgroundColor = null,
-  backgroundImages = null,
-  children = null,
-  classModifier = null
-}) => {
+const GenericPage = ({ children, classModifier, ...others }) => {
   return (
     <div className={`page ${classModifier ?? ''}`}>
-      <Header backgroundColor={backgroundColor} backgroundImages={backgroundImages} />
-      <PageTitle title={title} subtitle={subtitle} description={description} />
-      <div className="max-w-4xl m-auto p-8">{children}</div>
+      <Header />
+      <PageTitle {...others} />
+      <div className="max-w-4xl m-auto p-8 text-justify">{children}</div>
       <Footer />
     </div>
   );

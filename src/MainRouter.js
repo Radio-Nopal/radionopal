@@ -8,8 +8,8 @@ const MainRouter = () => (
   <BrowserRouter>
     <Switch>
       <Route path="/info/:slug" component={GenericPage} />
-      <Route path="/programacion/:slug" component={ShowInfo} />
-      <Route path="/" render={Home} />
+      <Route path="/:slug" component={ShowInfo} />
+      <Route path="/" component={Home} />
     </Switch>
   </BrowserRouter>
 );

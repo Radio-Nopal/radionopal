@@ -1,32 +1,90 @@
 .header {
     $self: &;
-
+    top: -2px;
     &__links {
         a {
             margin-left: 10px;
         }
     }
     &__logo {
+        height: 80px;
         transition: width 1s;
         transition-timing-function: ease;
     }
     &__container {
+        height: 180px;
         background-color: transparent;
         box-shadow: 0px rgba(0, 0, 0, 0.2);
     }
-    &--collapsed {
+    &__live-signal {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: transparent;
+        margin-right: 5px;
+        display: inline-block;
+        animation: live-animation 0.7s ease infinite alternate;
+        @keyframes live-animation {
+            0% {
+                background-color: transparent;
+            }
+            100% {
+                background-color: red;
+            }
+        }
+    }
+    .Marquee {
+        overflow: hidden;
+    }
+    .MarqueeContent {
+        div {
+            width: max-content;
+            br  {
+                content: ' '
+            }
+            br:after {
+                content: ' '
+            }
+        }
+    }
+    &__nowPlaying {
+        font-size: 10px;
+    }
+    @screen md {
+        #{ $self }__nowPlaying {
+            display: inherit;
+        }
+        .MarqueeContent {
+            display: none;
+        }
+        #{ $self }__logo {
+            height: 140px;
+        }
+    }
+
+    &[stuck] {
+        #{ $self }__container {
+            height: 150px;
+        }
+        .MarqueeContent {
+            display: inherit;
+        }
+        #{ $self }__nowPlaying {
+            display: none;
+        }
         min-height: 256px;
         #{ $self }__links {
             display: flex;
         }
 
         #{ $self }__logo {
-            width: 10%;
+            height: 80px;
         }
    
         #{ $self }__container {
             background-color: white;
-            box-shadow: 20px -15px 15px 20px rgba(0, 0, 0, 0.2);
+            border-radius: 0px 0px 0px 20px;
+            box-shadow: 20px -15px 15px 25px rgba(0, 0, 0, 0.2);
         }
 
         #{ $self }__col {

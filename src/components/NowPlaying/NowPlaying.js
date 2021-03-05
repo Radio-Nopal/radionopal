@@ -1,24 +1,18 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
+import { getLastTweet } from '../../util/getLastTweet/getLastTweet';
 import { store } from '../../store.js';
-import './NowPlaying.scss';
 
 const NowPlaying = () => {
-  const { state } = useContext(store);
-  const { playing } = state;
+  const { state, dispatch } = useContext(store);
+  const { nowPlaying } = state;
 
-  return (
-    <>
-      <div className="now-playing py-4 w-1/5">
-        {playing && <span className="now-playing__on"></span>}
-        Estás escuchando
-        <br />
-        <span className="font-noah-medium">defensa personal</span>
-      </div>
-      <div className="now-playing__info w-1/5">
-        @maranadalba y @eupempes magna aliqua Quis ipsum gravida
-      </div>
-    </>
-  );
+  useEffect(() => {
+    getLastTweet((data) => {
+      dispatch({ type: 'nowPlaying', payload: data[0].tweet });
+    });
+  }, []);
+
+  return <div dangerouslySetInnerHTML={{ __html: nowPlaying }}></div>;
 };
 
 export default NowPlaying;

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import HamburgerMenu from 'react-hamburger-menu';
 import Marquee from 'react-smooth-marquee'; //import Marquee from 'react-double-marquee';
@@ -7,6 +7,7 @@ import Player from '../Player/Player';
 import Menu from '../Menu/Menu';
 import NowPlaying from '../NowPlaying/NowPlaying';
 import VolumeSlider from '../VolumeSlider/VolumeSlider';
+import { store } from '../../store.js';
 import radionopalLogo from '../../assets/images/logo.svg';
 import nopalLogo from '../../assets/images/nopal.svg';
 import './Header.scss';
@@ -17,37 +18,41 @@ const initialState = {
   showMenu: false
 };
 
-const Header = ({ backgroundColor, backgroundImages }) => {
+const Header = () => {
+  const { state: storeState } = useContext(store);
+  const { playing } = storeState;
   const [state, setState] = useState(initialState);
   useEffect(() => {
-    window.addEventListener('scroll', () => {
-      setState((prev) => ({ ...prev, scroll: window.scrollY > 150 }));
-    });
+    const observer = new IntersectionObserver(
+      ([e]) => e.target.toggleAttribute('stuck', e.intersectionRatio < 1),
+      { threshold: [1] }
+    );
+    observer.observe(document.querySelector('.header'));
   }, []);
+
   return (
-    <header
-      className={`header top-0 sticky z-10 ${state.scroll ? 'header--collapsed' : ''}`}
-      style={{
-        backgroundImage: `url(${backgroundImages ? backgroundImages[0] : 'none'})`,
-        backgroundColor: backgroundColor ? backgroundColor.css : 'none'
-      }}>
+    <header className={'header -top-1 sticky z-10'}>
       <div className="header__container md:absolute p-8 w-full">
-        <div className="grid grid-cols-8 gap-4">
-          <div className="header__col gap-2 md:gap-8 flex md:block col-span-6 md:col-span-4 space-between items-start">
+        <div className="grid grid-cols-8 gap-4 h-full">
+          <div className="header__col gap-2 md:gap-8 flex md:block col-span-7 md:col-span-4 justify-between items-start h-0">
             <Link to="/" className="contents">
-              <img
-                className="header__logo w-1/6 mb-6"
-                src={radionopalLogo}
-                alt="Radio Nopal logo"
-              />
+              <img className="header__logo mb-6" src={radionopalLogo} alt="Radio Nopal logo" />
             </Link>
-            <img src={nopalLogo} className="header__nopal hidden w-1/5" alt="Radio Nopal logo" />
+            <img src={nopalLogo} className="header__nopal w-1/5" alt="Radio Nopal logo" />
             <div className="inline-flex">
               <Player />
             </div>
-            <NowPlaying />
+            <div className="font-birch-std md:py-4 w-1/4">
+              {playing && <span className="header__live-signal"></span>}
+              Estás escuchando
+              <br />
+              <span className="font-noah-medium">Defensa Personal</span>
+            </div>
+            <div className="header__nowPlaying hidden w-1/5">
+              <NowPlaying />
+            </div>
           </div>
-          <div className="col-span-2 md:col-span-4 flex space-between ml-auto">
+          <div className="col-span-1 md:col-span-4 flex space-between ml-auto h-0">
             <div className="flex items-start mr-4">
               <VolumeSlider />
             </div>
@@ -70,7 +75,9 @@ const Header = ({ backgroundColor, backgroundImages }) => {
             </div>
           </div>
         </div>
-        <Marquee>@maranadalba y @eupempes magna aliqua Quis ipsum gravida</Marquee>
+        <Marquee className="header__marquee">
+          <NowPlaying />
+        </Marquee>
       </div>
       <Menu showMenu={state.showMenu} />
     </header>

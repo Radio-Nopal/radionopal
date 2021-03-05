@@ -21,7 +21,7 @@ const Shows = () => {
         {data.map((item, key) => {
           return (
             <div key={key} className="show">
-              <Link to={`/programacion/${item.slug}`}>
+              <Link to={`/${item.slug}`}>
                 <h1 className="show__title text-4xl">{item.nombre}</h1>
                 {item.locutorxs[0].nombre && (
                   <span className="show__host">Por: {item.locutorxs[0].nombre}</span>

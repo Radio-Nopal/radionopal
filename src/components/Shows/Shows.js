@@ -17,7 +17,7 @@ const Shows = () => {
   return (
     <>
       {data.length === 0 && <Loader />}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 pt-8 gap-4">
         {data.map((item, key) => {
           return (
             <div key={key} className="show">

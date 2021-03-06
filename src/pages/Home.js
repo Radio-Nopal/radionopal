@@ -27,16 +27,15 @@ const Home = () => {
       classModifier="page--home"
       backgroundColor={getCssColor(color_fondo)}
       backgroundImages={imagenes_cabecera}>
-      <Calendar />
       {Object.keys(data).length ? (
-        <Loader />
-      ) : (
-        <>
-          {imagenes_contenido && <img alt={subtitulo} src={imagenes_contenido[0].url} />}
+        <div className="py-8">
+          {!!imagenes_contenido.length && <img alt={subtitulo} src={imagenes_contenido[0].url} />}
           <ReactMarkdown>{contenido}</ReactMarkdown>
-        </>
+        </div>
+      ) : (
+        <Loader />
       )}
-      <div id="example1"></div>
+      <Calendar />
       <Shows />
     </Page>
   );

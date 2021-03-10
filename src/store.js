@@ -3,7 +3,8 @@ import React, { createContext, useReducer } from 'react';
 const initialState = {
   playing: false,
   volume: 0.9,
-  nowPlaying: ''
+  nowPlaying: '',
+  lastTweet: ''
 };
 
 const store = createContext(initialState);
@@ -18,6 +19,8 @@ const StateProvider = ({ children }) => {
         return { ...state, volume: action.payload };
       case 'nowPlaying':
         return { ...state, nowPlaying: action.payload };
+      case 'lastTweet':
+        return { ...state, lastTweet: action.payload };
       default:
         throw new Error();
     }

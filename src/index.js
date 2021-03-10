@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import ReactGA from 'react-ga';
 import MainRouter from './MainRouter';
 import AudioElement from './components/AudioElement';
-import { StateProvider } from './store.js';
+import { StateProvider } from './store';
+import { ViewportProvider } from './util/viewPort';
 import reportWebVitals from './reportWebVitals';
 import './index.scss';
 
@@ -29,8 +30,10 @@ const App = () => {
   return (
     <React.StrictMode>
       <StateProvider>
-        <AudioElement />
-        <MainRouter />
+        <ViewportProvider>
+          <AudioElement />
+          <MainRouter />
+        </ViewportProvider>
       </StateProvider>
     </React.StrictMode>
   );

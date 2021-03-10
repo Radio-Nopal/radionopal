@@ -5,6 +5,7 @@ import Marquee from 'react-smooth-marquee'; //import Marquee from 'react-double-
 import SocialNetworksLinks from '../SocialNetworksLinks';
 import Player from '../Player/Player';
 import Menu from '../Menu/Menu';
+import LastTweet from '../LastTweet/LastTweet';
 import NowPlaying from '../NowPlaying/NowPlaying';
 import VolumeSlider from '../VolumeSlider/VolumeSlider';
 import { store } from '../../store.js';
@@ -46,10 +47,12 @@ const Header = () => {
               {playing && <span className="header__live-signal"></span>}
               Estás escuchando
               <br />
-              <span className="font-noah-medium">Defensa Personal</span>
+              <span className="font-noah-medium">
+                <NowPlaying />
+              </span>
             </div>
             <div className="header__nowPlaying hidden w-1/5">
-              <NowPlaying />
+              <LastTweet />
             </div>
           </div>
           <div className="col-span-1 md:col-span-4 flex space-between ml-auto h-0">
@@ -76,7 +79,7 @@ const Header = () => {
           </div>
         </div>
         <Marquee className="header__marquee">
-          <NowPlaying />
+          <LastTweet />
         </Marquee>
       </div>
       <Menu showMenu={state.showMenu} />

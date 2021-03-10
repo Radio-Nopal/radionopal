@@ -5,10 +5,14 @@ import Page from '../components/Page/Page';
 import Shows from '../components/Shows/Shows';
 import Loader from '../components/Loader';
 import { getCssColor } from '../util/getCssColor';
+import { useViewport } from '../util/viewPort';
 import './Home.scss';
 
 const Home = () => {
   const [data, setData] = useState({});
+
+  const { width } = useViewport();
+  const breakpoint = 600;
 
   useEffect(() => {
     fetch(`${process.env.REACT_APP_CMS_URL}/paginas?slug=home`)
@@ -35,7 +39,7 @@ const Home = () => {
       ) : (
         <Loader />
       )}
-      <Calendar />
+      <Calendar view={width < breakpoint ? 'dayGridDay' : 'dayGridWeek'} />
       <Shows />
     </Page>
   );

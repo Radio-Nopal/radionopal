@@ -31,7 +31,6 @@ const Calendar = ({ view }) => {
       plugins={[dayGridPlugin, interactionPlugin, googleCalendarPlugin]}
       weekends={false}
       ref={calendarRef}
-      // defaultView={view}
       initialView={view}
       googleCalendarApiKey={process.env.REACT_APP_API_KEY}
       eventTimeFormat={{

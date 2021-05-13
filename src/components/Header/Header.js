@@ -33,17 +33,17 @@ const Header = () => {
 
   return (
     <header className={'header -top-1 sticky z-10'}>
-      <div className="header__container md:absolute p-8 w-full">
-        <div className="grid grid-cols-8 gap-4 h-full">
+      <div className="header__container md:absolute p-3 w-full">
+        <div className="grid grid-cols-8 gap-4 h-5/6">
           <div className="header__col gap-2 md:gap-8 flex md:block col-span-7 md:col-span-4 justify-between items-start h-0">
             <Link to="/" className="contents">
               <img className="header__logo mb-6" src={radionopalLogo} alt="Radio Nopal logo" />
             </Link>
-            <img src={nopalLogo} className="header__nopal w-1/5" alt="Radio Nopal logo" />
+            <img src={nopalLogo} className="header__nopal p-2 w-1/5" alt="Radio Nopal logo" />
             <div className="inline-flex">
               <Player />
             </div>
-            <div className="font-birch-std md:py-4 w-1/4">
+            <div className="font-birch-std header__now-playing leading-4 w-1/4">
               {playing && <span className="header__live-signal"></span>}
               Estás escuchando
               <br />
@@ -51,7 +51,7 @@ const Header = () => {
                 <NowPlaying />
               </span>
             </div>
-            <div className="header__nowPlaying hidden w-1/5">
+            <div className="header__lastTweet hidden w-1/5">
               <LastTweet />
             </div>
           </div>
@@ -60,8 +60,13 @@ const Header = () => {
               <VolumeSlider />
             </div>
             <div className="hidden md:block w-2/4">
-              <input type="text" className="w-100" name="search" placeholder="buscar" />
-              <div className="header__links hidden absolute right-8 justify-end pt-4">
+              <input
+                type="text"
+                className="header__search-input w-100 pl-2"
+                name="search"
+                placeholder="buscar"
+              />
+              <div className="header__links hidden absolute pt-1 right-8 justify-end">
                 <SocialNetworksLinks />
               </div>
             </div>
@@ -78,7 +83,7 @@ const Header = () => {
             </div>
           </div>
         </div>
-        <Marquee className="header__marquee">
+        <Marquee className="header__marquee leading-7">
           <LastTweet />
         </Marquee>
       </div>

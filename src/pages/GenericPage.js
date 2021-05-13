@@ -37,7 +37,7 @@ const GenericPage = ({ match }) => {
         <Loader />
       ) : (
         <>
-          {imagenes_contenido && <img alt={subtitulo} src={imagenes_contenido[0].url} />}
+          {!!imagenes_contenido?.length && <img alt={subtitulo} src={imagenes_contenido[0].url} />}
           <ReactMarkdown>{contenido}</ReactMarkdown>
         </>
       )}

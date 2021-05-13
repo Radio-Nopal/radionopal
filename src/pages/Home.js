@@ -33,7 +33,10 @@ const Home = () => {
       backgroundImages={imagenes_cabecera}>
       {Object.keys(data).length ? (
         <div className="py-8">
-          {!!imagenes_contenido.length && <img alt={subtitulo} src={imagenes_contenido[0].url} />}
+          {!!imagenes_contenido.length && (
+            <img className="m-auto" alt={subtitulo} src={imagenes_contenido[0].url} />
+          )}
+          <br />
           <ReactMarkdown>{contenido}</ReactMarkdown>
         </div>
       ) : (

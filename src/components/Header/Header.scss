@@ -12,7 +12,7 @@
         transition-timing-function: ease;
     }
     &__container {
-        height: 180px;
+        height: 120px;
         background-color: transparent;
         box-shadow: 0px rgba(0, 0, 0, 0.2);
     }
@@ -33,6 +33,10 @@
             }
         }
     }
+    &__search-input {
+        border-radius: 5px;
+        background: #F0F0F0;
+    }
     .Marquee {
         overflow: hidden;
     }
@@ -47,11 +51,14 @@
             }
         }
     }
-    &__nowPlaying {
+    &__lastTweet {
         font-size: 10px;
     }
+    &__now-playing {
+        padding: 15px 0px;
+    }
     @screen md {
-        #{ $self }__nowPlaying {
+        #{ $self }__lastTweet {
             display: inherit;
         }
         .MarqueeContent {
@@ -63,27 +70,29 @@
     }
 
     &[stuck] {
+        #{ $self }__now-playing {
+            padding: 0px;
+        }
         #{ $self }__container {
-            height: 150px;
+            height: 85px;
         }
         .MarqueeContent {
             display: inherit;
         }
-        #{ $self }__nowPlaying {
+        #{ $self }__lastTweet {
             display: none;
         }
-        min-height: 256px;
         #{ $self }__links {
             display: flex;
         }
 
         #{ $self }__logo {
-            height: 80px;
+            height: 45px;
         }
    
         #{ $self }__container {
             background-color: white;
-            border-radius: 0px 0px 0px 20px;
+            border-radius: 0px 0px 10px 10px;
             box-shadow: 20px -15px 15px 25px rgba(0, 0, 0, 0.2);
         }
 
@@ -91,6 +100,11 @@
             display: flex;
         }
 
+        .player {
+            max-width: 50px;
+            max-height: 50px;
+            top: -5px;
+        }
         @screen md {
             min-height: 0px;
             #{ $self }__nopal {

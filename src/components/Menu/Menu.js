@@ -19,7 +19,7 @@ const Menu = ({ showMenu }) => {
           <Link to="/">Educativa</Link>
         </li>
         <li>
-          <Link to="/">Archivo</Link>
+          <Link to="/info/archivo">Archivo</Link>
         </li>
       </ul>
     </div>

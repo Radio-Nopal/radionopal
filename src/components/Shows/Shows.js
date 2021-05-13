@@ -23,7 +23,7 @@ const Shows = () => {
             <div key={key} className="show">
               <Link to={`/${item.slug}`}>
                 <h1 className="show__title text-4xl">{item.nombre}</h1>
-                {item.locutorxs[0].nombre && (
+                {item.locutorxs[0]?.nombre && (
                   <span className="show__host">Por: {item.locutorxs[0].nombre}</span>
                 )}
                 <h2 className="show__description text-gray-400">{`${item.dias} | ${item.hora} | ${item.periodicidad}`}</h2>

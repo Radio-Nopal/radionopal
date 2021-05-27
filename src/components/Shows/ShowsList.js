@@ -13,7 +13,7 @@ const ShowsList = ({ searchTerm, filter }) => {
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
-        const filtered = filter ? data.filter(filter) : data;
+        const filtered = filter ? data.filter(filter) : data.filter((i) => !i.es_archivo);
         setData(filtered);
         setIsLoading(false);
       })
@@ -30,12 +30,16 @@ const ShowsList = ({ searchTerm, filter }) => {
           return (
             <div key={key} className="show">
               <Link to={`/${item.slug}`}>
-                <h1 className="show__title text-4xl">{item.nombre}</h1>
-                {item.locutorxs[0]?.nombre && (
+                <h1 className="show__title text-4xl truncate">{item.nombre}</h1>
+                {item.locutorxs[0]?.nombre ? (
                   <span className="show__host">Por: {item.locutorxs[0].nombre}</span>
+                ) : (
+                  <br />
                 )}
                 <h2 className="show__description text-gray-400">{`${item.dias} | ${item.hora} | ${item.periodicidad}`}</h2>
-                <img src={item.imagen_programa[0].url} alt={item.descripcion} />
+                <div
+                  className="show__image bg-cover bg-center"
+                  style={{ backgroundImage: `url(${item.imagen_programa[0].url})` }}></div>
               </Link>
             </div>
           );

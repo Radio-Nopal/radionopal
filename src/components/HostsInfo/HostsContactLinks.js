@@ -26,11 +26,13 @@ const HostsContactLinks = ({ data }) => {
     }
   };
 
-  return data.map((x) => (
-    <a key={x.id} href={x.url} target="_blank" rel="noreferrer" alt={x.contacto} className="pr-1">
-      {renderIcon(x.contacto)}
-    </a>
-  ));
+  return data
+    .filter((x) => x.url)
+    .map((x) => (
+      <a key={x.id} href={x.url} target="_blank" rel="noreferrer" alt={x.contacto} className="pr-1">
+        {renderIcon(x.contacto)}
+      </a>
+    ));
 };
 
 export default HostsContactLinks;

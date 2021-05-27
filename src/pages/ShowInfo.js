@@ -20,23 +20,36 @@ const ShowInfo = ({ match }) => {
         console.error('Oh no, error occured: ', err);
       });
   }, []);
-
+  const {
+    nombre,
+    dias,
+    hora,
+    periodicidad,
+    imagen_programa,
+    locutorxs,
+    archivo_mixcloud,
+    descripcion_programa
+  } = data;
   return (
     <Page
-      title={data.nombre || ''}
-      subtitle={`${data.dias || ''} | ${data.hora || ''} | ${data.periodicidad || ''}`}
-      backgroundImages={data.imagen_programa}>
+      title={nombre || ''}
+      subtitle={dias && hora && periodicidad ? `${dias} | ${hora} | ${periodicidad} ` : ''}
+      backgroundImages={imagen_programa}>
       {isLoading ? (
         <Loader />
       ) : data.length === 0 ? (
         <Redirect to="/" />
       ) : (
         <>
-          <div>{data.descripcion_programa}</div>
+          <div>{descripcion_programa}</div>
           <br />
-          <HostsInfo data={data.locutorxs} />
-          <h1 className="text-4xl pt-12 pb-4">Archivo</h1>
-          <MixcloudArchive data={data.archivo_mixcloud} />
+          <HostsInfo data={locutorxs} />
+          {archivo_mixcloud?.length > 0 && (
+            <>
+              <h1 className="text-4xl pt-12 pb-4">Archivo</h1>
+              <MixcloudArchive data={archivo_mixcloud} />
+            </>
+          )}
         </>
       )}
     </Page>

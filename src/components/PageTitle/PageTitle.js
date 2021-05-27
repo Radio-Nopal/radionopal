@@ -22,7 +22,7 @@ const PageTitle = ({ title, subtitle, description, backgroundColor, backgroundIm
             className={`p-12 page-title__info ${
               backgroundImages.length ? 'page-title__info--inverse' : ''
             }`}>
-            <h1 className="text-4xl pb-1">
+            <h1 className="text-3xl pb-4">
               <span>{title}</span>
             </h1>
             <h2>

@@ -1,6 +1,7 @@
 .menu {
     animation: background-color-animation 20s 0.08s infinite;
     transition: right 1s;
+    animation-direction: reverse;
     a:hover {
         text-decoration: underline;
     }

@@ -13,13 +13,14 @@ const ShowInfo = ({ match }) => {
     fetch(`${process.env.REACT_APP_CMS_URL}/programas?slug=${match.params.slug}`)
       .then((response) => response.json())
       .then((data) => {
-        setData(data[0]);
+        if (data.length) setData(data[0]);
         setIsLoading(false);
       })
       .catch((err) => {
         console.error('Oh no, error occured: ', err);
       });
   }, []);
+
   const {
     nombre,
     dias,

@@ -6,9 +6,11 @@ import Home from './pages/Home';
 import SearchResults from './pages/SearchResults';
 import Archivo from './pages/Archivo';
 import Programacion from './pages/Programacion';
+import ScrollToTop from './util/ScrollToTop';
 
 const MainRouter = () => (
   <BrowserRouter>
+    <ScrollToTop />
     <Switch>
       <Route path="/info/:slug" component={GenericPage} />
       <Route path="/busqueda/:searchTerm" component={SearchResults} />

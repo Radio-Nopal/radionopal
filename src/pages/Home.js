@@ -31,7 +31,10 @@ const Home = () => {
 
   const { imagenes_cabecera, imagenes_contenido, subtitulo, contenido, color_fondo } = data;
   return (
-    <Page backgroundColor={getCssColor(color_fondo)} backgroundImages={imagenes_cabecera}>
+    <Page
+      classModifier="page--home"
+      backgroundColor={getCssColor(color_fondo)}
+      backgroundImages={imagenes_cabecera}>
       {!isLoading ? (
         <div>
           {!!imagenes_contenido?.length && (

@@ -27,6 +27,7 @@ const ShowsList = ({ searchTerm, filter }) => {
       {isLoading && <Loader />}
       <div className="grid grid-cols-2 md:grid-cols-4 pt-8 gap-4">
         {data.map((item, key) => {
+          const { dias, hora, periodicidad } = item;
           return (
             <div key={key} className="show">
               <Link to={`/${item.slug}`}>
@@ -36,10 +37,20 @@ const ShowsList = ({ searchTerm, filter }) => {
                 ) : (
                   <br />
                 )}
-                <h2 className="show__description text-gray-400">{`${item.dias} | ${item.hora} | ${item.periodicidad}`}</h2>
+                {dias && hora && periodicidad ? (
+                  <h2 className="show__description text-gray-400">{`${dias} | ${hora} | ${periodicidad}`}</h2>
+                ) : (
+                  <>
+                    <br />
+                    <br />
+                  </>
+                )}
                 <div
                   className="show__image bg-cover bg-center"
-                  style={{ backgroundImage: `url(${item.imagen_programa[0].url})` }}></div>
+                  style={{
+                    backgroundImage: `url(${item.imagen_programa[0]?.url})`,
+                    backgroundColor: 'black'
+                  }}></div>
               </Link>
             </div>
           );

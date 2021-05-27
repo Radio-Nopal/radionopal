@@ -45,8 +45,8 @@ const Header = () => {
               <Player />
             </div>
             <div className="font-birch-std header__now-playing leading-4 w-1/4">
-              {playing && <span className="header__live-signal"></span>}
               Estás escuchando
+              {playing && <span className="header__live-signal ml-1"></span>}
               <br />
               <span className="font-noah-medium">
                 <NowPlaying />

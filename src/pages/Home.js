@@ -6,7 +6,6 @@ import ShowsList from '../components/Shows/ShowsList';
 import Loader from '../components/Loader';
 import { getCssColor } from '../util/getCssColor';
 import { useViewport } from '../util/viewPort';
-import './Home.scss';
 
 const Home = () => {
   const [data, setData] = useState({});
@@ -31,10 +30,7 @@ const Home = () => {
 
   const { imagenes_cabecera, imagenes_contenido, subtitulo, contenido, color_fondo } = data;
   return (
-    <Page
-      classModifier="page--home"
-      backgroundColor={getCssColor(color_fondo)}
-      backgroundImages={imagenes_cabecera}>
+    <Page backgroundColor={getCssColor(color_fondo)} backgroundImages={imagenes_cabecera}>
       {!isLoading ? (
         <div>
           {!!imagenes_contenido?.length && (

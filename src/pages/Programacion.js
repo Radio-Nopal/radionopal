@@ -41,8 +41,6 @@ const Programacion = () => {
         <Loader />
       )}
       <br />
-      <br />
-      <br />
       <Calendar view={width < breakpoint ? 'dayGridDay' : 'dayGridWeek'} />
       <ShowsList />
     </Page>

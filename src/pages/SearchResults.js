@@ -2,7 +2,6 @@ import React from 'react';
 import Page from '../components/Page/Page';
 import PagesList from '../components/PagesList/PagesList';
 import ShowsList from '../components/Shows/ShowsList';
-import './Home.scss';
 
 const SearchResults = ({ match }) => {
   const searchTerm = match.params.searchTerm;

@@ -5,6 +5,7 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import googleCalendarPlugin from '@fullcalendar/google-calendar';
 import esLocale from '@fullcalendar/core/locales/es';
+import './Calendar.scss';
 
 const Calendar = ({ view }) => {
   const history = useHistory();

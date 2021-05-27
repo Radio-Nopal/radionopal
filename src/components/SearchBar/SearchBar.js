@@ -22,7 +22,7 @@ const SearchBar = withRouter(({ history }) => {
     <div className="flex">
       <input
         type="text"
-        className="search-bar w-100 pl-2"
+        className="search-bar w-full pl-2"
         name="search"
         placeholder="buscar"
         onKeyUp={onKeyUp}

@@ -2,7 +2,7 @@
     .fc-button-primary {
       border: none;
       border-radius: 0;
-      background: black;
+      background: #000000;
     }
     .fc-daygrid-event-dot {
       display: none;
@@ -16,5 +16,8 @@
     }
     .fc-event-time {
       color: gray;
+    }
+    .fc-toolbar-chunk {
+      text-align: end;
     }
 }

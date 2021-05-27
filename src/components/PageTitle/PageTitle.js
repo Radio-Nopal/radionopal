@@ -19,7 +19,7 @@ const PageTitle = ({ title, subtitle, description, backgroundColor, backgroundIm
             backgroundImage: `url(${backgroundImages.length ? backgroundImages[0].url : 'none'})`
           }}>
           <div
-            className={`p-12 page-title__info ${
+            className={`p-4 page-title__info ${
               backgroundImages.length ? 'page-title__info--inverse' : ''
             }`}>
             <h1 className="text-3xl pb-4">

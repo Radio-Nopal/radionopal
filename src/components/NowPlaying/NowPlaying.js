@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import { store } from '../../store.js';
 
 const twoHoursLater = new Date();
-twoHoursLater.setHours(twoHoursLater.getHours() + 10);
+twoHoursLater.setHours(twoHoursLater.getHours() + 1);
 
 const calendarUrl = `https://www.googleapis.com/calendar/v3/calendars/${
   process.env.REACT_APP_CALENDAR_ID

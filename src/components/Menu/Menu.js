@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SearchBar from '../SearchBar/SearchBar';
 import './Menu.scss';
 
 const Menu = ({ showMenu }) => {
@@ -10,16 +11,20 @@ const Menu = ({ showMenu }) => {
       }`}>
       <ul>
         <li>
-          <Link to="/">Programación</Link>
+          <Link to="/programacion">Programación</Link>
         </li>
         <li>
           <Link to="/info/residencia">Residencia</Link>
         </li>
         <li>
-          <Link to="/">Educativa</Link>
+          <Link to="/info/educativa">Educativa</Link>
         </li>
         <li>
-          <Link to="/info/archivo">Archivo</Link>
+          <Link to="/archivo">Archivo</Link>
+        </li>
+        <br />
+        <li>
+          <SearchBar />
         </li>
       </ul>
     </div>

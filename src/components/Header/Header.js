@@ -2,12 +2,13 @@ import React, { useEffect, useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import HamburgerMenu from 'react-hamburger-menu';
 import Marquee from 'react-smooth-marquee'; //import Marquee from 'react-double-marquee';
-import SocialNetworksLinks from '../SocialNetworksLinks';
+import SocialNetworksLinks from './SocialNetworksLinks';
 import Player from '../Player/Player';
 import Menu from '../Menu/Menu';
 import LastTweet from '../LastTweet/LastTweet';
 import NowPlaying from '../NowPlaying/NowPlaying';
 import VolumeSlider from '../VolumeSlider/VolumeSlider';
+import SearchBar from '../SearchBar/SearchBar';
 import { store } from '../../store.js';
 import radionopalLogo from '../../assets/images/logo.svg';
 import nopalLogo from '../../assets/images/nopal.svg';
@@ -60,12 +61,7 @@ const Header = () => {
               <VolumeSlider />
             </div>
             <div className="hidden md:block w-2/4">
-              <input
-                type="text"
-                className="header__search-input w-100 pl-2"
-                name="search"
-                placeholder="buscar"
-              />
+              <SearchBar />
               <div className="header__links hidden absolute pt-1 right-8 justify-end">
                 <SocialNetworksLinks />
               </div>

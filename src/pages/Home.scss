@@ -1,5 +1,21 @@
 .page--home {
-  .page-title {
-    height: 80vh;
+  .fc {
+    .fc-button-primary {
+      border: none;
+      border-radius: 0;
+      background: black;
+    }
+    .fc-daygrid-event-dot {
+      display: none;
+    }
+  
+    .fc-event-time {
+      color: gray;
+    }
+    
+    .fc-day-today > .fc-daygrid-day-frame {
+      background: rgb(241, 208, 201);
+    }
   }
+
 }

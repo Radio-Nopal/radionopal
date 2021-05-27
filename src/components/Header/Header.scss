@@ -33,10 +33,6 @@
             }
         }
     }
-    &__search-input {
-        border-radius: 5px;
-        background: #F0F0F0;
-    }
     .Marquee {
         overflow: hidden;
     }
@@ -53,6 +49,7 @@
     }
     &__lastTweet {
         font-size: 10px;
+        word-wrap: break-word;
     }
     &__now-playing {
         padding: 15px 0px;

@@ -3,20 +3,28 @@ import { Link } from 'react-router-dom';
 import Loader from '../Loader';
 import './Shows.scss';
 
-const Shows = () => {
+const ShowsList = ({ searchTerm, filter }) => {
   const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const search = searchTerm ? `?_q=${searchTerm}` : '';
+  const url = `${process.env.REACT_APP_CMS_URL}/programas${search}`;
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_CMS_URL}/programas`)
+    fetch(url)
       .then((response) => response.json())
-      .then((data) => setData(data))
+      .then((data) => {
+        const filtered = filter ? data.filter(filter) : data;
+        setData(filtered);
+        setIsLoading(false);
+      })
       .catch((err) => {
         console.error('Oh no, error occured: ', err);
       });
-  }, []);
+  }, [searchTerm]);
+
   return (
     <>
-      {data.length === 0 && <Loader />}
+      {isLoading && <Loader />}
       <div className="grid grid-cols-2 md:grid-cols-4 pt-8 gap-4">
         {data.map((item, key) => {
           return (
@@ -33,8 +41,11 @@ const Shows = () => {
           );
         })}
       </div>
+      {data.length === 0 && !isLoading && (
+        <span>{'No se encontraron programas con esta búsqueda.'}</span>
+      )}
     </>
   );
 };
 
-export default Shows;
+export default ShowsList;

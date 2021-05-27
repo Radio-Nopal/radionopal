@@ -1,10 +1,30 @@
 .page-title {
   min-height: 370px;
   background-size: cover;
+
   h1 { 
       font-family: 'Circular Std Black';
   }
+
   h2 {
       font-family: 'Circular Std Black';
+  }
+
+  &__info--inverse {
+    span {
+      color: white;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+  }
+
+  &__image-container {
+    height: 70vh;
+    width: 75%;
+    margin: auto;
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }

@@ -12,7 +12,7 @@ Desarrollado con create-react-app
 
 ```sh
 $ npm install
-$ npm start
+$ npm run dev
 ```
 
 Abre [http://localhost:3000](http://localhost:3000) para ver el sitio en el explorador.

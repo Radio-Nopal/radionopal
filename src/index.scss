@@ -63,6 +63,7 @@ body {
   font-display: swap;
 }
 
+/*
 @keyframes background-color-animation {
   0% {
     background-color: #f9f8de;
@@ -96,6 +97,25 @@ body {
   }
   95% {
     background-color: #dbdcff;
+  }
+}
+*/
+
+@keyframes background-color-animation {
+  0% {
+    background-color: rgb(196, 212, 230);
+  }
+  25% {
+    background-color: #5fcea5;
+  }
+  50% {
+    background-color: rgb(255, 254, 192);
+  }
+  75% {
+    background-color: rgb(241, 208, 201);
+  }
+  100% {
+    background-color: rgb(196, 212, 230);
   }
 }
 

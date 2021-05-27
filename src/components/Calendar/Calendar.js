@@ -30,6 +30,7 @@ const Calendar = ({ view }) => {
       locale={esLocale}
       plugins={[dayGridPlugin, interactionPlugin, googleCalendarPlugin]}
       weekends={false}
+      height="auto"
       ref={calendarRef}
       initialView={view}
       googleCalendarApiKey={process.env.REACT_APP_API_KEY}
@@ -40,7 +41,6 @@ const Calendar = ({ view }) => {
       }}
       eventClick={(arg) => {
         arg.jsEvent.preventDefault();
-        console.log(arg);
         if (arg.event._def.extendedProps.location) {
           history.push(`/${arg.event._def.extendedProps.location}`);
         }

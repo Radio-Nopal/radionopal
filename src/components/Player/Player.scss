@@ -31,11 +31,12 @@
         height: 24px;
         border-width: 12px 0 12px 20px;
     }
-
-    &:hover {
-        #{ $self }__border {
-            border: 5px dashed black;
-            animation: hover-animation 1s 0.08s infinite;
+    @media (hover: hover) and (pointer: fine) {
+        &:hover {
+            #{ $self }__border {
+                border: 5px dashed black;
+                animation: hover-animation 1s 0.08s infinite;
+            }
         }
     }
     &--playing {

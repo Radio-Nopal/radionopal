@@ -45,7 +45,7 @@ const Home = () => {
       <br />
       <br />
       <Calendar view={width < breakpoint ? 'dayGridDay' : 'dayGridWeek'} />
-      <ShowsList />
+      <ShowsList filter={(i) => !i.es_archivo} />
     </Page>
   );
 };

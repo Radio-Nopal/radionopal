@@ -13,7 +13,7 @@ const ShowsList = ({ searchTerm, filter }) => {
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
-        const filtered = filter ? data.filter(filter) : data.filter((i) => !i.es_archivo);
+        const filtered = filter ? data.filter(filter) : data;
         setData(filtered);
         setIsLoading(false);
       })

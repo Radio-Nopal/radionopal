@@ -5,9 +5,10 @@ import './Player.scss';
 
 const Player = () => {
   const { state, dispatch } = useContext(store);
-  const { playing } = state;
+  const { playing, isOnline } = state;
 
   const handlePlayerClick = () => {
+    if (!isOnline) return;
     if (!playing) {
       ReactGA.event({
         category: 'Botón Play',
@@ -30,7 +31,11 @@ const Player = () => {
   };
 
   return (
-    <button className={`player ${playing ? 'player--playing' : ''}`} onClick={handlePlayerClick}>
+    <button
+      className={`player ${playing ? 'player--playing' : ''} ${
+        isOnline ? '' : 'player--isOffline'
+      }`}
+      onClick={handlePlayerClick}>
       <div className="player__border" />
       <svg />
     </button>

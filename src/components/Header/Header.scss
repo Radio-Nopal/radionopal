@@ -1,11 +1,6 @@
 .header {
     $self: &;
     top: -2px;
-    &__links {
-        a {
-            margin-left: 10px;
-        }
-    }
     &__logo {
         height: 80px;
         transition: width 1s;
@@ -47,40 +42,45 @@
             }
         }
     }
-    &__lastTweet {
-        font-size: 12px;
-        word-wrap: break-word;
-    }
     &__now-playing {
         padding: 15px 0px;
+        margin: 0.75rem;
+    }
+    &__player-container {
+        display: flex;
     }
     @screen md {
-        #{ $self }__lastTweet {
-            display: inherit;
-        }
         .MarqueeContent {
             display: none;
         }
+
         #{ $self }__logo {
             height: 140px;
+        }
+
+        #{ $self }__player-container {
+            display: block;
+        }
+        #{ $self }__now-playing {
+            margin: 0rem;
         }
     }
 
     &[stuck] {
+        #{ $self }__player-container {
+            display: flex;
+        }
         #{ $self }__now-playing {
             padding: 0px;
+            margin: 0.75rem;
         }
+
         #{ $self }__container {
             height: 85px;
         }
+
         .MarqueeContent {
             display: inherit;
-        }
-        #{ $self }__lastTweet {
-            display: none;
-        }
-        #{ $self }__links {
-            display: flex;
         }
 
         #{ $self }__logo {

@@ -30,8 +30,8 @@ const ShowsList = ({ searchTerm, filter }) => {
           const { dias, hora, periodicidad } = item;
           return (
             <div key={key} className="show">
-              <Link to={`/${item.slug}`}>
-                <h1 className="show__title text-4xl truncate">{item.nombre}</h1>
+              <Link to={`/${item.slug}`} title={item?.nombre}>
+                <h1 className="show__title text-base truncate">{item.nombre}</h1>
                 {item.locutorxs[0]?.nombre ? (
                   <span className="show__host">Por: {item.locutorxs[0].nombre}</span>
                 ) : (

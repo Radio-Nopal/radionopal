@@ -7,7 +7,7 @@ const SearchResults = ({ match }) => {
   const searchTerm = match.params.searchTerm;
 
   return (
-    <Page title="Búsqueda" description="Restulados de la búsqueda">
+    <Page title="Búsqueda" description={`Resultados de la búsqueda: ${searchTerm}`}>
       <span className="text-4xl">Programas:</span>
       <ShowsList searchTerm={searchTerm} />
 

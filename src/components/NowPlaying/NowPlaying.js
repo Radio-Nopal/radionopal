@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from 'react';
+import { io } from 'socket.io-client';
 import { store } from '../../store.js';
 
 const twoHoursLater = new Date();
@@ -15,6 +16,13 @@ const NowPlaying = () => {
   const { nowPlaying } = state;
 
   useEffect(() => {
+    const socket = io(process.env.REACT_APP_MENSAJITO_SOCKET_URL, {
+      transports: ['websocket', 'polling', 'flashsocket']
+    });
+    socket.on('estacion', (msg) => {
+      console.log(msg.includes('nopalradio'));
+      dispatch({ type: 'isOnline', payload: msg.includes('nopalradio') });
+    });
     fetch(calendarUrl)
       .then((response) => response.json())
       .then((data) => {

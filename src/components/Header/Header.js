@@ -2,7 +2,6 @@ import React, { useEffect, useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import HamburgerMenu from 'react-hamburger-menu';
 import Marquee from 'react-smooth-marquee'; //import Marquee from 'react-double-marquee';
-import SocialNetworksLinks from './SocialNetworksLinks';
 import Player from '../Player/Player';
 import Menu from '../Menu/Menu';
 import LastTweet from '../LastTweet/LastTweet';
@@ -11,7 +10,6 @@ import VolumeSlider from '../VolumeSlider/VolumeSlider';
 import SearchBar from '../SearchBar/SearchBar';
 import { store } from '../../store.js';
 import radionopalLogo from '../../assets/images/logo.svg';
-import nopalLogo from '../../assets/images/nopal.svg';
 import './Header.scss';
 
 const initialState = {
@@ -22,7 +20,7 @@ const initialState = {
 
 const Header = () => {
   const { state: storeState } = useContext(store);
-  const { playing } = storeState;
+  const { playing, isOnline } = storeState;
   const [state, setState] = useState(initialState);
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -36,35 +34,31 @@ const Header = () => {
     <header className={'header -top-1 sticky z-10'}>
       <div className="header__container md:absolute p-3 w-full">
         <div className="grid grid-cols-8 gap-4 h-5/6">
-          <div className="header__col gap-2 md:gap-8 flex md:block col-span-7 md:col-span-4 justify-between items-start h-0">
+          <div className="header__col gap-2 md:gap-8 flex md:block col-span-5 md:col-span-2 justify-between items-start h-0">
             <Link to="/" className="contents">
               <img className="header__logo mb-6" src={radionopalLogo} alt="Radio Nopal logo" />
             </Link>
-            <img src={nopalLogo} className="header__nopal p-2 w-1/5" alt="Radio Nopal logo" />
-            <div className="inline-flex">
-              <Player />
-            </div>
-            <div className="font-birch-std header__now-playing leading-4 w-1/4">
-              Estás escuchando
-              {playing && <span className="header__live-signal ml-1"></span>}
-              <br />
-              <span className="font-noah-medium">
-                <NowPlaying />
-              </span>
-            </div>
-            <div className="header__lastTweet hidden w-1/5">
-              <LastTweet />
+            <div className="header__player-container">
+              <div className="inline-flex">
+                <Player />
+              </div>
+              <div className="header__now-playing leading-4 w-1/4">
+                {isOnline ? 'Estás escuchando' : 'Offline'}
+                {playing && <span className="header__live-signal ml-1"></span>}
+                <br />
+                <span>
+                  <NowPlaying />
+                </span>
+              </div>
             </div>
           </div>
-          <div className="col-span-1 md:col-span-4 flex space-between ml-auto h-0">
+          <div className="col-span-3 md:col-span-6 flex space-between ml-auto h-0">
             <div className="flex items-start mr-4">
               <VolumeSlider />
             </div>
             <div className="hidden md:block w-2/4">
               <SearchBar />
-              <div className="header__links hidden absolute pt-1 right-8 justify-end">
-                <SocialNetworksLinks />
-              </div>
+              <div className="header__links hidden absolute pt-1 right-8 justify-end"></div>
             </div>
             <div className="float-right mt-1 md:ml-4 relative">
               <HamburgerMenu

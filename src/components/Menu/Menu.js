@@ -6,7 +6,7 @@ import './Menu.scss';
 const Menu = ({ showMenu }) => {
   return (
     <div
-      className={`menu p-12 z-10 md:w-1/2 text-4xl fixed top-0 w-screen h-screen ${
+      className={`menu p-12 z-10 text-4xl fixed top-0 w-screen h-screen ${
         showMenu ? 'menu--show' : 'menu--hidden'
       }`}>
       <ul>

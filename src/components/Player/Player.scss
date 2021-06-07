@@ -48,6 +48,20 @@
         
         }
     }
+
+    &--isOffline {
+        #{ $self }__border {
+            border: 5px solid gray;
+        }
+        svg {
+            border-color: transparent transparent transparent gray;
+        }
+        &:hover {
+            #{ $self }__border {
+                border: 5px solid gray;
+            }
+        }
+    }
     
     @keyframes hover-animation {
         0% {

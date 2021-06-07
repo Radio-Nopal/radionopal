@@ -13,6 +13,9 @@
         display: flex;
       }
     }
+    .fc-daygrid-event-harness {
+      padding: 0px 10px;
+    }
     .fc-day-today.fc-col-header-cell {
       animation: background-color-animation 2s 0.08s infinite;
       transition: right 1s;

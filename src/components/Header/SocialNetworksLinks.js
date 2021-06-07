@@ -1,15 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { FaInstagram, FaFacebookSquare, FaTwitterSquare, FaMixcloud } from 'react-icons/fa';
 
 const SocialNetworksLinks = () => {
   return (
-    <>
-      <span>
-        <Link className="mr-1 font-noah-medium" to="/info/apoyanos">
-          Apóyanos
-        </Link>
-      </span>
+    <div className="flex relative left-0" style={{ marginLeft: '10px', top: '-7vh' }}>
       <a href="https://www.instagram.com/radionopal/" rel="noreferrer" target="_blank">
         <FaInstagram size="1.5em" />
       </a>
@@ -22,7 +16,7 @@ const SocialNetworksLinks = () => {
       <a href="https://www.mixcloud.com/radionopal" rel="noreferrer" target="_blank">
         <FaMixcloud size="1.5em" />
       </a>
-    </>
+    </div>
   );
 };
 

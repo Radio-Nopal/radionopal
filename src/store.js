@@ -4,6 +4,7 @@ const initialState = {
   playing: false,
   volume: 0.9,
   nowPlaying: '',
+  isOnline: false,
   lastTweet: ''
 };
 
@@ -19,6 +20,8 @@ const StateProvider = ({ children }) => {
         return { ...state, volume: action.payload };
       case 'nowPlaying':
         return { ...state, nowPlaying: action.payload };
+      case 'isOnline':
+        return { ...state, isOnline: action.payload };
       case 'lastTweet':
         return { ...state, lastTweet: action.payload };
       default:

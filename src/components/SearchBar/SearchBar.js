@@ -19,19 +19,19 @@ const SearchBar = withRouter(({ history }) => {
   };
 
   return (
-    <div className="flex">
+    <div className="search-bar w-full flex">
+      <button className="ml-2" onClick={redirect}>
+        <FaSearch />
+      </button>
       <input
         type="text"
-        className="search-bar w-full pl-2"
+        className="w-full pl-2"
         name="search"
         placeholder="buscar"
         onKeyUp={onKeyUp}
         onChange={onChange}
         value={searchTerm}
       />
-      <button className="ml-2" onClick={redirect}>
-        <FaSearch />
-      </button>
     </div>
   );
 });

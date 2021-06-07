@@ -20,8 +20,6 @@ const NowPlaying = () => {
       transports: ['websocket', 'polling', 'flashsocket']
     });
     socket.on('estacion', (msg) => {
-      console.log(msg.includes('nopalradio'));
-      console.log(msg);
       dispatch({ type: 'isOnline', payload: msg.includes('nopalradio') });
     });
     fetch(calendarUrl)

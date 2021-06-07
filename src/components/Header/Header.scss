@@ -44,7 +44,7 @@
     }
     &__now-playing {
         padding: 15px 0px;
-        margin: 0.75rem;
+        margin: 0rem 0.75rem;
     }
     &__player-container {
         display: flex;
@@ -63,6 +63,7 @@
         }
         #{ $self }__now-playing {
             margin: 0rem;
+            width: 30%;
         }
     }
 
@@ -72,7 +73,8 @@
         }
         #{ $self }__now-playing {
             padding: 0px;
-            margin: 0.75rem;
+            margin: 0rem 0.75rem;
+            width: 100%;
         }
 
         #{ $self }__container {

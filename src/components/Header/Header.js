@@ -34,7 +34,7 @@ const Header = () => {
     <header className={'header -top-1 sticky z-10'}>
       <div className="header__container md:absolute p-3 w-full">
         <div className="grid grid-cols-8 gap-4 h-5/6">
-          <div className="header__col gap-2 md:gap-8 flex md:block col-span-5 md:col-span-2 justify-between items-start h-0">
+          <div className="header__col gap-2 md:gap-8 flex md:block col-span-7 md:col-span-3 justify-between items-start h-0">
             <Link to="/" className="contents">
               <img className="header__logo mb-6" src={radionopalLogo} alt="Radio Nopal logo" />
             </Link>
@@ -46,11 +46,11 @@ const Header = () => {
                 {playing && nowPlaying && <span className="header__live-signal ml-1"></span>}
                 {isOnline ? nowPlaying && 'Estás escuchando: ' : 'Offline'}
                 <br />
-                <span>{nowPlaying && <NowPlaying />}</span>
+                <span>{isOnline && <NowPlaying />}</span>
               </div>
             </div>
           </div>
-          <div className="col-span-3 md:col-span-6 flex space-between ml-auto h-0">
+          <div className="col-span-1 md:col-span-5 flex space-between ml-auto h-0">
             <div className="flex items-start mr-4">
               <VolumeSlider />
             </div>

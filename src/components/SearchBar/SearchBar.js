@@ -19,7 +19,7 @@ const SearchBar = withRouter(({ history }) => {
   };
 
   return (
-    <div className="search-bar w-full flex">
+    <div className="search-bar md:w-2/5 w-full flex">
       <button className="ml-2" onClick={redirect}>
         <FaSearch />
       </button>

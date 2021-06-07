@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { FaSearch } from 'react-icons/fa';
 import './SearchBar.scss';
 
-const SearchBar = withRouter(({ history }) => {
+const SearchBar = withRouter(({ history, fullWidth }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
   const onKeyUp = (e) => {
@@ -19,7 +19,7 @@ const SearchBar = withRouter(({ history }) => {
   };
 
   return (
-    <div className="search-bar md:w-2/5 w-full flex">
+    <div className={`search-bar ${fullWidth ? '' : 'md:w-2/5'} w-full flex`}>
       <button className="ml-2" onClick={redirect}>
         <FaSearch />
       </button>

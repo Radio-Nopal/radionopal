@@ -20,7 +20,7 @@ const initialState = {
 
 const Header = () => {
   const { state: storeState } = useContext(store);
-  const { playing, isOnline } = storeState;
+  const { playing, isOnline, nowPlaying } = storeState;
   const [state, setState] = useState(initialState);
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -42,13 +42,11 @@ const Header = () => {
               <div className="inline-flex">
                 <Player />
               </div>
-              <div className="header__now-playing leading-4 w-1/4">
-                {isOnline ? 'Estás escuchando' : 'Offline'}
-                {playing && <span className="header__live-signal ml-1"></span>}
+              <div className="header__now-playing leading-4">
+                {playing && nowPlaying && <span className="header__live-signal ml-1"></span>}
+                {isOnline ? nowPlaying && 'Estás escuchando: ' : 'Offline'}
                 <br />
-                <span>
-                  <NowPlaying />
-                </span>
+                <span>{nowPlaying && <NowPlaying />}</span>
               </div>
             </div>
           </div>

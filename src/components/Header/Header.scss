@@ -45,6 +45,10 @@
     &__now-playing {
         padding: 15px 0px;
         margin: 0rem 0.75rem;
+        width: 160px;
+    }
+    &__show-name {
+        margin-left: 18px;
     }
     &__player-container {
         display: flex;
@@ -63,7 +67,6 @@
         }
         #{ $self }__now-playing {
             margin: 0rem;
-            width: 30%;
         }
     }
 
@@ -72,11 +75,13 @@
             display: flex;
         }
         #{ $self }__now-playing {
+            width: 160px;
             padding: 0px;
             margin: 0rem 0.75rem;
-            width: 100%;
         }
-
+        &__show-name {
+            margin-left: 18px;
+        }
         #{ $self }__container {
             height: 85px;
         }

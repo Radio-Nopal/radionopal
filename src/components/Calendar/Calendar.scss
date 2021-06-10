@@ -1,6 +1,10 @@
 .fc {
     td, th {
-    border-style: none !important;
+      border-style: none !important;
+    }
+
+    .fc-toolbar-title {
+      display: none;
     }
 
     .fc-col-header-cell > .fc-scrollgrid-sync-inner {

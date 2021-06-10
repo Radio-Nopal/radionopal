@@ -46,7 +46,7 @@ const Header = () => {
                 {playing && nowPlaying && <span className="header__live-signal ml-1"></span>}
                 {isOnline ? nowPlaying && playing && 'Estás escuchando: ' : 'Offline'}
                 <br />
-                <span>
+                <span className="header__show-name">
                   <NowPlaying />
                 </span>
               </div>

@@ -19,7 +19,7 @@ const SearchBar = withRouter(({ history, fullWidth }) => {
   };
 
   return (
-    <div className={`search-bar ${fullWidth ? '' : 'md:w-2/5'} mt-1 w-full flex`}>
+    <div className={`search-bar ${fullWidth ? '' : 'md:w-1/5'} mt-1 w-full flex`}>
       <button className="ml-2" onClick={redirect}>
         <FaSearch />
       </button>

@@ -1,31 +1,78 @@
 .fc {
+    td, th {
+    border-style: none !important;
+    }
+
+    .fc-col-header-cell > .fc-scrollgrid-sync-inner {
+      border-top: 1px;
+      border-bottom: 1px;
+      border-style: solid;
+      border-color: lightgray;
+      margin: 0px 10px;
+    }
+
+    .fc-scrollgrid {
+      border: none;
+    }
+    
     .fc-button-primary {
       border: none;
       border-radius: 0;
-      background: #000000;
+      color: lightgray;
+      background: white;
+    }
+
+    .fc-button-primary:not(:disabled):active, 
+    .fc-button-primary:not(:disabled).fc-button-active,
+    .fc-button-primary:not(:disabled):active:focus,
+    .fc-button-primary:not(:disabled).fc-button-active:focus,
+    .fc-button-primary:focus,
+    .fc-button-primary:hover,
+    .fc-button-primary:active {
+      background: white;
+      color: black;
+      border: none;
+      box-shadow: none;
+      border: none;
+      background-color: none;
+    }
+
+    .fc-today-button {
+      display: none;
+    }
+  
+    .fc-icon-chevron-left:before,
+    .fc-icon-chevron-right:before {
+      content: "\2022";
     }
     .fc-daygrid-event-dot {
       display: none;
     }
+
     .fc-toolbar  {
       display: inline;
       @media (min-width: 640px) {
         display: flex;
       }
     }
+
     .fc-daygrid-event-harness {
       padding: 0px 10px;
     }
-    .fc-day-today.fc-col-header-cell {
+
+    .fc-day-today.fc-col-header-cell > .fc-scrollgrid-sync-inner {
       animation: background-color-animation 2s 0.08s infinite;
       transition: right 1s;
     }
+
     .fc-day-today > .fc-daygrid-day-frame {
       background: white;
     }
+
     .fc-event-time {
       color: gray;
     }
+
     .fc-toolbar-chunk {
       text-align: end;
     }

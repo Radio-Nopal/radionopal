@@ -19,7 +19,7 @@ const SearchBar = withRouter(({ history, fullWidth }) => {
   };
 
   return (
-    <div className={`search-bar ${fullWidth ? '' : 'md:w-2/5'} w-full flex`}>
+    <div className={`search-bar ${fullWidth ? '' : 'md:w-2/5'} mt-1 w-full flex`}>
       <button className="ml-2" onClick={redirect}>
         <FaSearch />
       </button>
@@ -27,7 +27,6 @@ const SearchBar = withRouter(({ history, fullWidth }) => {
         type="text"
         className="w-full pl-2"
         name="search"
-        placeholder="buscar"
         onKeyUp={onKeyUp}
         onChange={onChange}
         value={searchTerm}

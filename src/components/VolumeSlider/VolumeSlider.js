@@ -11,8 +11,8 @@ const VolumeSlider = () => {
     dispatch({ type: 'volume', payload: volumeLevel });
   };
   return (
-    <>
-      <button className="mr-2 float-left hidden md:block" onClick={mute}>
+    <div className="volume-slider flex">
+      <button className="volume-slider__speaker mr-2 float-left hidden md:block" onClick={mute}>
         {volume < 0.1 ? (
           <FaVolumeOff size="1.5em" />
         ) : volume < 0.5 ? (
@@ -22,7 +22,7 @@ const VolumeSlider = () => {
         )}
       </button>
       <input
-        className="header__volume-slider mt-1 hidden md:block"
+        className="volume-slider__slider mt-1 hidden md:block"
         type="range"
         min={0.0}
         max={1}
@@ -33,7 +33,7 @@ const VolumeSlider = () => {
           dispatch({ type: 'volume', payload: event.target.value });
         }}
       />
-    </>
+    </div>
   );
 };
 

@@ -1,0 +1,37 @@
+.page--home {
+    @screen md {
+        .header:not([stuck]) {
+            .header__logo {
+                filter: invert(100%);
+            }
+            .header__now-playing {
+                color: var(--header-text-color);
+            }
+            .player {
+                .player__border {
+                    border-color: var(--header-text-color);
+                }
+                svg {
+                    border-color: transparent transparent transparent var(--header-text-color);
+                }
+            }
+            .volume-slider__speaker {
+                color: var(--header-text-color);
+            }
+
+            .volume-slider__slider {
+                border: 2px solid var(--header-text-color);
+            }
+
+            .header__hamburger-menu span {
+                background: var(--header-text-color) !important;
+            }
+        }
+    }
+    .social-network-links svg {
+        fill: var(--header-text-color);
+    }
+    .direccion {
+        color: var(--header-text-color);
+    }
+}

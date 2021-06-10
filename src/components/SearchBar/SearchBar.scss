@@ -1,8 +1,12 @@
 .search-bar {
-    border-radius: 5px;
+    --search-bar-height: 13px;
+    border-radius: 20px;
     background: #F0F0F0;
+    line-height: var(--search-bar-height);
+    font-size: var(--search-bar-height);
     input {
-        border-radius: 5px;
+        line-height: var(--search-bar-height);
+        border-radius: 20px;
         background: #F0F0F0;
         &:focus {
             outline: none;

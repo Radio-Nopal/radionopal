@@ -5,9 +5,9 @@ import PageTitle from '../PageTitle/PageTitle';
 import SocialNetworksLinks from '../Header/SocialNetworksLinks';
 import './Page.scss';
 
-const GenericPage = ({ children, classModifier, ...others }) => {
+const GenericPage = ({ children, style, classModifier, ...others }) => {
   return (
-    <div className={`page ${classModifier ?? ''}`}>
+    <div className={`page ${classModifier ? `page--${classModifier}` : ''}`} style={style}>
       <Header />
       <PageTitle {...others} />
       <SocialNetworksLinks />

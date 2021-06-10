@@ -62,7 +62,7 @@ const Header = () => {
             </div>
             <div className="float-right mt-1 md:ml-4 relative">
               <HamburgerMenu
-                className="cursor-pointer z-40"
+                className="header__hamburger-menu cursor-pointer z-40"
                 isOpen={state.showMenu}
                 menuClicked={() => setState((prev) => ({ ...prev, showMenu: !state.showMenu }))}
                 width={18}

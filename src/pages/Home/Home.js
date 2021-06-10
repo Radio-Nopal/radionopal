@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
-import Calendar from '../components/Calendar/Calendar';
-import Page from '../components/Page/Page';
-import Loader from '../components/Loader';
-import { getCssColor } from '../util/getCssColor';
-import { useViewport } from '../util/viewPort';
+import Calendar from '../../components/Calendar/Calendar';
+import Page from '../../components/Page/Page';
+import Loader from '../../components/Loader';
+import { useViewport } from '../../util/viewPort';
+import './Home.scss';
 
 const Home = () => {
   const [data, setData] = useState({});
@@ -27,9 +27,11 @@ const Home = () => {
       });
   }, []);
 
-  const { imagenes_cabecera, imagenes_contenido, subtitulo, contenido, color_fondo } = data;
+  const { imagenes_cabecera, imagenes_contenido, contenido, color_fondo } = data;
+  const style = { '--header-text-color': color_fondo };
+  console.log(color_fondo);
   return (
-    <Page backgroundColor={getCssColor(color_fondo)} backgroundImages={imagenes_cabecera}>
+    <Page style={style} classModifier="home" backgroundImages={imagenes_cabecera}>
       <span
         className="direccion absolute text-xs"
         style={{
@@ -41,12 +43,19 @@ const Home = () => {
         Calle José Rosas Moreno 123a, colonia San Rafael, CDMX, C.P. 06470
       </span>
       {!isLoading ? (
-        <div>
+        <div className="grid md:grid-cols-8 gap-8 md:grid-flow-col">
           {!!imagenes_contenido?.length && (
-            <img className="m-auto" alt={subtitulo} src={imagenes_contenido[0].url} />
+            <div
+              className="h-96 col-span-8 md:col-span-3"
+              style={{
+                backgroundSize: 'cover',
+                backgroundPosition: 'center center',
+                backgroundImage: `url('${imagenes_contenido[0].url}')`
+              }}></div>
           )}
-          <br />
-          <ReactMarkdown>{contenido}</ReactMarkdown>
+          <div className="col-span-8 md:col-span-5">
+            <ReactMarkdown>{contenido}</ReactMarkdown>
+          </div>
         </div>
       ) : (
         <Loader />

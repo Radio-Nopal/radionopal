@@ -2,19 +2,22 @@ import React from 'react';
 import { FaInstagram, FaFacebookSquare, FaTwitterSquare, FaMixcloud } from 'react-icons/fa';
 
 const SocialNetworksLinks = () => {
+  const size = '1em';
   return (
-    <div className="flex relative left-0" style={{ marginLeft: '10px', top: '-7vh' }}>
+    <div
+      className="social-network-links flex relative left-0"
+      style={{ marginLeft: '10px', top: '-7vh' }}>
       <a href="https://www.instagram.com/radionopal/" rel="noreferrer" target="_blank">
-        <FaInstagram size="1.5em" />
+        <FaInstagram size={size} />
       </a>
       <a href="https://twitter.com/radio_nopal" rel="noreferrer" target="_blank">
-        <FaTwitterSquare size="1.5em" />
+        <FaTwitterSquare size={size} />
       </a>
       <a href="https://www.facebook.com/RadioNopal" rel="noreferrer" target="_blank">
-        <FaFacebookSquare size="1.5em" />
+        <FaFacebookSquare size={size} />
       </a>
       <a href="https://www.mixcloud.com/radionopal" rel="noreferrer" target="_blank">
-        <FaMixcloud size="1.5em" />
+        <FaMixcloud size={size} />
       </a>
     </div>
   );
